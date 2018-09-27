@@ -1,3 +1,3 @@
 define(['react'], React =>
-  function Counter() {
-    return  React.createElement('p', {}, 'counter');});
+  function Counter({n}) {
+    return  React.createElement('p', {}, `counter is ${n}`);});

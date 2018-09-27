@@ -6,5 +6,5 @@ requirejs.config({
 requirejs(['react', 'react-dom', 'view/counter'], 
           (React, ReactDOM, Counter) => {
   console.debug('starting app ...'); 
-  ReactDOM.render(React.createElement(Counter),
+  ReactDOM.render(React.createElement(Counter, {n: 1}),
                   document.getElementById('app'));});
