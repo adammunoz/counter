@@ -9,7 +9,15 @@ requirejs(['react', 'react-dom', 'view/counter',
 
   console.debug('starting app ...'); 
 
-  ReactDOM.render(React.createElement(Counter, 
-                                      {n: store.n, text: store.text,
-                                       onClickIncrement: userMw.incrementN}),
-    document.getElementById('app'));});
+  function render() {
+    console.debug('rendering ...'); 
+    ReactDOM.render(React.createElement(Counter, 
+                                        {n: store.n, text: store.text,
+                                          onClickIncrement: () => {
+                                          userMw.incrementN();
+                                          render();}
+                                        }),
+                    document.getElementById('app'));
+  };
+  render();
+});
