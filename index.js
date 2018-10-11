@@ -15,11 +15,15 @@ requirejs(['react', 'react-dom', 'view/counter',
     ReactDOM.render(React.createElement(Counter, 
                                         {n: store.n, text: store.text,
                                           onClickIncrement: () => {
-                                          userMw.incrementN();
-                                          userMw.incrementText();
-                                          render();}
+                                            setTimeout(userMw.incrementN, 1000);
+                                            setTimeout(userMw.incrementText, 2000);
+                                            render();}
                                         }),
                     document.getElementById('app'));
   };
   render();
+  setInterval(() => { 
+    userMw.incrementN();
+    userMw.incrementText()
+  }, 2500);
 });

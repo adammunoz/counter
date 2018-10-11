@@ -3,9 +3,11 @@ define(['number-words','domain/store'],
   return {  
     incrementN: function() {
       store.n++;
+      console.debug('incrementN', store.n)
     },
     incrementText: function() {
       store.text = numberWords.convert(store.n);
+      console.debug('incrementText', store.text)
     }
   };
 });
