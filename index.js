@@ -10,18 +10,18 @@ requirejs(['react', 'react-dom', 'view/counter',
 
   console.debug('starting app ...'); 
 
-  function render() {
+  function render(state) {
     console.debug('rendering ...'); 
     ReactDOM.render(React.createElement(Counter, 
-                                        {n: store.n, text: store.text,
+                                        {n: state.n, text: state.text,
                                           onClickIncrement: () => {
                                             setTimeout(userMw.incrementN, 1000);
                                             setTimeout(userMw.incrementText, 2000);
-                                            render();}
+                                            render(state);}
                                         }),
                     document.getElementById('app'));
   };
-  render();
+  render(store);
   setInterval(() => { 
     userMw.incrementN();
     userMw.incrementText()
